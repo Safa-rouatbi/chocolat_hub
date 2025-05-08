@@ -1,0 +1,38 @@
+<h2>🍫 Liste des Chocolats</h2>
+<ul>
+  <li *ngFor="let choco of chocolats">
+    <strong>{{ choco.nom }}</strong> ({{ choco.type }}, {{ choco.origine }}) -
+    {{ choco.prix }}€
+    <button (click)="deleteChocolat(choco._id)">🗑️ Supprimer</button>
+  </li>
+</ul>
+
+<h3>➕ Ajouter un chocolat</h3>
+<form (ngSubmit)="addChocolat()">
+  <input [(ngModel)]="newChocolat.nom" name="nom" placeholder="Nom" required />
+  <input
+    [(ngModel)]="newChocolat.type"
+    name="type"
+    placeholder="Type"
+    required
+  />
+  <input
+    [(ngModel)]="newChocolat.origine"
+    name="origine"
+    placeholder="Origine"
+    required
+  />
+  <input
+    [(ngModel)]="newChocolat.description"
+    name="description"
+    placeholder="Description"
+  />
+  <input
+    [(ngModel)]="newChocolat.prix"
+    name="prix"
+    type="number"
+    placeholder="Prix"
+    required
+  />
+  <button type="submit">Ajouter</button>
+</form>
