@@ -6,24 +6,32 @@ import { RouterOutlet, RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet, RouterLink],
   template: `
-    <nav class="bg-gray-800 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <a routerLink="/" class="text-2xl font-bold">Chocolat Hub</a>
-        <div class="space-x-4">
-          <a routerLink="/chocolats" class="hover:text-gray-300">Liste des Chocolats</a>
-          <a routerLink="/chocolats/new" class="bg-blue-500 px-4 py-2 rounded hover:bg-blue-600">
-            Ajouter un Chocolat
-          </a>
+    <div class="min-h-screen bg-chocolate-50">
+      <nav class="bg-chocolate-800 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+          <div class="flex justify-between items-center">
+            <a routerLink="/" class="text-2xl font-bold text-chocolate-100 hover:text-chocolate-50 transition-all duration-300 ease-in-out transform hover:scale-105 no-underline">
+              Chocolat Hub
+            </a>
+            <div class="space-x-6">
+              <a routerLink="/chocolats" class="text-white no-underline hover:text-chocolate-200 transition-all duration-300 ease-in-out transform hover:scale-105 px-4 py-2 rounded-lg hover:bg-chocolate-700">
+                Liste
+              </a>
+              <a routerLink="/chocolats/new" class="text-white no-underline hover:text-chocolate-200 transition-all duration-300 ease-in-out transform hover:scale-105 px-4 py-2 rounded-lg hover:bg-chocolate-700">
+                Ajouter
+              </a>
+            </div>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <main class="min-h-screen bg-gray-100">
-      <router-outlet></router-outlet>
-    </main>
+      <main class="container mx-auto px-4 py-8">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
   `,
   styles: []
 })
 export class AppComponent {
-  title = 'Chocolat Hub';
+  title = 'chocolat-hub';
 }

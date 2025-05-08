@@ -11,19 +11,19 @@ import { Chocolat } from '../../interfaces/chocolat.interface';
   imports: [CommonModule, FormsModule],
   template: `
     <div class="container mx-auto p-4">
-      <h1 class="text-3xl font-bold mb-6">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un Chocolat</h1>
+      <h1 class="text-3xl font-bold mb-6 text-chocolate-800">{{ isEditMode ? 'Modifier' : 'Ajouter' }} un Chocolat</h1>
       
       <form (ngSubmit)="onSubmit()" class="max-w-lg mx-auto">
         <div class="mb-4">
           <label class="block text-gray-700 mb-2" for="nom">Nom</label>
           <input type="text" id="nom" [(ngModel)]="chocolat.nom" name="nom" required
-                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-chocolate-500">
         </div>
 
         <div class="mb-4">
           <label class="block text-gray-700 mb-2" for="type">Type</label>
           <select id="type" [(ngModel)]="chocolat.type" name="type" required
-                  class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                  class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-chocolate-500">
             <option value="">Sélectionnez un type</option>
             <option value="Noir">Noir</option>
             <option value="Lait">Lait</option>
@@ -34,29 +34,35 @@ import { Chocolat } from '../../interfaces/chocolat.interface';
         <div class="mb-4">
           <label class="block text-gray-700 mb-2" for="origine">Origine</label>
           <input type="text" id="origine" [(ngModel)]="chocolat.origine" name="origine" required
-                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-chocolate-500">
         </div>
 
         <div class="mb-4">
           <label class="block text-gray-700 mb-2" for="description">Description</label>
           <textarea id="description" [(ngModel)]="chocolat.description" name="description"
-                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-chocolate-500"
                     rows="3"></textarea>
         </div>
 
         <div class="mb-4">
           <label class="block text-gray-700 mb-2" for="prix">Prix (€)</label>
           <input type="number" id="prix" [(ngModel)]="chocolat.prix" name="prix" required
-                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                 class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-chocolate-500">
         </div>
 
         <div class="flex gap-4">
           <button type="submit" 
-                  class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600">
+                  class="bg-chocolate-600 text-white px-6 py-2 rounded-lg hover:bg-chocolate-700 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
             {{ isEditMode ? 'Modifier' : 'Ajouter' }}
           </button>
           <button type="button" (click)="goBack()"
-                  class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600">
+                  class="bg-chocolate-400 text-white px-6 py-2 rounded-lg hover:bg-chocolate-500 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-md hover:shadow-lg flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
             Annuler
           </button>
         </div>
