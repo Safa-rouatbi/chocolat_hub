@@ -97,20 +97,42 @@ export class ChocolatFormComponent implements OnInit {
           this.chocolat = chocolat;
         }
       },
-      error: (error) => console.error('Erreur lors du chargement du chocolat:', error)
+      error: (error) => {
+        console.error('Erreur lors du chargement du chocolat:', error);
+        alert('Erreur lors du chargement du chocolat');
+      }
     });
   }
 
   onSubmit(): void {
+    console.log('Soumission du formulaire:', this.chocolat);
+    
+    if (!this.chocolat.nom || !this.chocolat.type || !this.chocolat.origine || !this.chocolat.prix) {
+      alert('Veuillez remplir tous les champs obligatoires');
+      return;
+    }
+
     if (this.isEditMode && this.chocolat._id) {
       this.chocolatService.updateChocolat(this.chocolat._id, this.chocolat).subscribe({
-        next: () => this.goBack(),
-        error: (error) => console.error('Erreur lors de la modification:', error)
+        next: () => {
+          console.log('Chocolat modifié avec succès');
+          this.goBack();
+        },
+        error: (error) => {
+          console.error('Erreur lors de la modification:', error);
+          alert('Erreur lors de la modification du chocolat');
+        }
       });
     } else {
       this.chocolatService.createChocolat(this.chocolat).subscribe({
-        next: () => this.goBack(),
-        error: (error) => console.error('Erreur lors de la création:', error)
+        next: () => {
+          console.log('Chocolat créé avec succès');
+          this.goBack();
+        },
+        error: (error) => {
+          console.error('Erreur lors de la création:', error);
+          alert('Erreur lors de la création du chocolat');
+        }
       });
     }
   }
